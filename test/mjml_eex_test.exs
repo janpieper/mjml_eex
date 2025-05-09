@@ -130,13 +130,15 @@ defmodule MjmlEExTest do
 
   describe "ErrorTemplate" do
     test "should raise an error if the MJML template fails to compile" do
-      assert_raise RuntimeError, "Failed to compile MJML template: \"unexpected element at position 447..480\"", fn ->
-        defmodule InvalidTemplateOption do
-          use MjmlEEx,
-            mjml_template: "test_templates/invalid_template.mjml.eex",
-            mode: :compile
-        end
-      end
+      assert_raise RuntimeError,
+                   "Failed to compile MJML template: \"unexpected element in root template at position 447:480\"",
+                   fn ->
+                     defmodule InvalidTemplateOption do
+                       use MjmlEEx,
+                         mjml_template: "test_templates/invalid_template.mjml.eex",
+                         mode: :compile
+                     end
+                   end
     end
 
     test "should raise an error if the MJML template compile mode is invalid" do

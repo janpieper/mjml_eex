@@ -73,7 +73,7 @@ defmodule MjmlEEx.MixProject do
       {:mjml, "~> 4.0 or ~> 5.0"},
       {:phoenix_html, "~> 3.2 or ~> 4.0"},
       {:telemetry, "~> 1.0"},
-      {:erlexec, "~> 2.0.7", optional: true},
+      {:erlexec, "~> 2.2", optional: true},
 
       # Development deps
       {:gettext, "~> 1.0", only: :test},

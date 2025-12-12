@@ -76,15 +76,19 @@ defmodule MjmlEExTest do
   end
 
   defmodule MjmlEExTest.Gettext do
-    use Gettext, otp_app: :mjml_eex
+    use Gettext.Backend, otp_app: :mjml_eex
   end
 
   defmodule GettextTemplate do
-    import MjmlEExTest.Gettext
+    use Gettext, backend: MjmlEExTest.Gettext
 
     use MjmlEEx,
       mjml_template: "test_templates/gettext_template.mjml.eex",
       mode: :compile
+  end
+
+  def handle_telemetry(event, measurements, metadata, _opts) do
+    send(self(), %{event: event, measurements: measurements, metadata: metadata})
   end
 
   describe "BasicTemplate.render/1" do
@@ -211,9 +215,7 @@ defmodule MjmlEExTest do
           [:mjml_eex, :render, :start],
           [:mjml_eex, :render, :stop]
         ],
-        fn event, measurements, metadata, _opts ->
-          send(self(), %{event: event, measurements: measurements, metadata: metadata})
-        end,
+        &__MODULE__.handle_telemetry/4,
         nil
       )
 

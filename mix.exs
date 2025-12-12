@@ -16,8 +16,7 @@ defmodule MjmlEEx.MixProject do
       package: package(),
       deps: deps(),
       docs: docs(),
-      aliases: aliases(),
-      cli: cli()
+      aliases: aliases()
     ]
   end
 
@@ -30,7 +29,7 @@ defmodule MjmlEEx.MixProject do
 
   def cli do
     [
-      preferred_cli_env: [
+      preferred_envs: [
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,

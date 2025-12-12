@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2025-12-12
+
+- Upgraded to MJML 5.3
+- Allow comments (e.g. `%!-- this is some comment --%>`) in templates
+- Bump optional `erlexec` dependency to `2.2`
+
 ## [0.12.0] - 2024-07-12
 
 - Upgraded to MJML 4.0.0

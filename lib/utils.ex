@@ -97,6 +97,9 @@ defmodule MjmlEEx.Utils do
             acc <> encode_expression(normalize_marker(marker), expression)
         end
 
+      {:comment, _content, _location}, acc ->
+        acc
+
       {:eof, _location}, acc ->
         acc
     end)

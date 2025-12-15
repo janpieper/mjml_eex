@@ -13,13 +13,6 @@ defmodule MjmlEEx.MixProject do
       description: "Create emails that WOW your customers using MJML and EEx",
       start_permanent: Mix.env() == :prod,
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.detail": :test,
-        "coveralls.post": :test,
-        "coveralls.html": :test,
-        "coveralls.github": :test
-      ],
       package: package(),
       deps: deps(),
       docs: docs(),
@@ -31,6 +24,18 @@ defmodule MjmlEEx.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "coveralls.github": :test
+      ]
     ]
   end
 
@@ -67,10 +72,10 @@ defmodule MjmlEEx.MixProject do
       {:mjml, "~> 4.0 or ~> 5.0"},
       {:phoenix_html, "~> 3.2 or ~> 4.0"},
       {:telemetry, "~> 1.0"},
-      {:erlexec, "~> 2.0.7", optional: true},
+      {:erlexec, "~> 2.2", optional: true},
 
       # Development deps
-      {:gettext, "~> 0.24.0", only: :test},
+      {:gettext, "~> 1.0", only: :test},
       {:ex_doc, "~> 0.34", only: :dev},
       {:excoveralls, "~> 0.18", only: [:test, :dev], runtime: false},
       {:doctor, "~> 0.21", only: :dev},

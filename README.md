@@ -43,7 +43,7 @@ dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:mjml_eex, "~> 0.12.0"}
+    {:mjml_eex, "~> 0.13.0"}
   ]
 end
 ```
@@ -94,7 +94,9 @@ module path):
     <mj-section>
       <mj-column>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text font-size="20px" color="#F45E43"> Hello <%= @first_name %> <%= @last_name %>! </mj-text>
+        <mj-text font-size="20px" color="#F45E43">
+          Hello <%= @first_name %> <%= @last_name %>!
+        </mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
@@ -127,7 +129,9 @@ In conjunction with the following template:
     <mj-section>
       <mj-column>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text font-size="20px" color="#F45E43"> Hello <%= generate_full_name(@first_name, @last_name) %>! </mj-text>
+        <mj-text font-size="20px" color="#F45E43">
+          Hello <%= generate_full_name(@first_name, @last_name) %>!
+        </mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
@@ -176,7 +180,9 @@ And the following template:
     <mj-section>
       <mj-column>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text font-size="20px" color="#F45E43"> Hello <%= generate_full_name(@first_name, @last_name) %>! </mj-text>
+        <mj-text font-size="20px" color="#F45E43">
+          Hello <%= generate_full_name(@first_name, @last_name) %>!
+        </mj-text>
       </mj-column>
     </mj-section>
   </mj-body>
@@ -207,8 +213,12 @@ def MyTemplate.CtaComponent do
   def render(assigns) do
     """
     <mj-column>
-      <mj-text font-size="20px" color="#F45E43">#{assigns[:call_to_action_text]}</mj-text>
-      <mj-button align="center" inner-padding="12px 20px">#{assigns[:call_to_action_link]}</mj-button>
+      <mj-text font-size="20px" color="#F45E43">
+        #{assigns[:call_to_action_text]}
+      </mj-text>
+      <mj-button align="center" inner-padding="12px 20px">
+        #{assigns[:call_to_action_link]}
+      </mj-button>
     </mj-column>
     """
   end
